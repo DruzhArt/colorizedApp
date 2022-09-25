@@ -9,11 +9,18 @@ import UIKit
 
 class ViewController: UIViewController {
 
+   // MARK: - IBOutlet
+    @IBOutlet var changeColor: UIView!
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        changeColor.layer.cornerRadius = 30
     }
 
 
 }
+
 
