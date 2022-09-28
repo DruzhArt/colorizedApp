@@ -8,29 +8,45 @@
 import UIKit
 
 class ViewController: UIViewController {
-
-   // MARK: - IBOutlet
+    
+    // MARK: - IBOutlet
     @IBOutlet var changeColor: UIView!
-    @IBOutlet var redLabel: UILabel!
-//    @IBOutlet var blueLabel: UILabel!
-//    @IBOutlet var greenLabel: UILabel!
-    @IBOutlet var sliderRed: UISlider!
+    
+    @IBOutlet weak var redLabel: UILabel!
+    @IBOutlet weak var greenLabel: UILabel!
+    @IBOutlet weak var blueLabel: UILabel!
+    
+    @IBOutlet weak var redSlider: UISlider!
+    @IBOutlet weak var greenSlider: UISlider!
+    @IBOutlet weak var blueSlider: UISlider!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        changeColor.layer.cornerRadius = 30
-//        changeColor.backgroundColor = UIColor(displayP3Red: <#T##CGFloat#>, green: <#T##CGFloat#>, blue: <#T##CGFloat#>, alpha: <#T##CGFloat#>)
-        setupSlider()
-    }
-
-    // MARK: - IBAction
+        changeColor.layer.cornerRadius = 15
+        
+        changeColor.backgroundColor = UIColor(
+            red: CGFloat(redSlider.value),
+            green: CGFloat(greenSlider.value),
+            blue: CGFloat(blueSlider.value),
+            alpha: 1)
     
-    @IBAction func setupSlider() {
-        sliderRed.minimumTrackTintColor = .red
-        redLabel.text = sliderRed.value.formatted()
+        redLabel.text = String(format: "%.2f", redSlider.value)
+        greenLabel.text = String(format: "%.2f", greenSlider.value)
+        blueLabel.text = String(format: "%.2f", blueSlider.value)
         
     }
     
+    // MARK: - IBAction
+    
+    @IBAction func setupSlider() {
+        changeColor.backgroundColor = UIColor(
+            red: CGFloat(redSlider.value),
+            green: CGFloat(greenSlider.value),
+            blue: CGFloat(blueSlider.value),
+            alpha: 1)
+    }
+    
+    
+    
+    
 }
-
-
