@@ -32,11 +32,18 @@ class ViewController: UIViewController {
     
     // MARK: - IBAction
     
-    @IBAction func setupSlider() {
+    @IBAction func actionSlider(_ sender: UISlider) {
         setupColor()
-        setValue()
+        switch sender {
+        case redSlider:
+            redLabel.text = string(from: sender)
+        case greenSlider:
+            greenLabel.text = string(from: sender)
+        default:
+            blueLabel.text = string(from: sender)
+        }
     }
-    
+        
     private func setupColor() {
         changeColor.backgroundColor = UIColor(
             red: CGFloat(redSlider.value),
